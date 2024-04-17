@@ -1,0 +1,15 @@
+{
+  "name": "funeralgame",
+  "module": "index.ts",
+  "dependencies": {
+    "express": "^4.19.2",
+    "ip": "^2.0.1"
+  },
+  "scripts": {
+    "dev": "bun --hot --bun server.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "type": "module"
+}
