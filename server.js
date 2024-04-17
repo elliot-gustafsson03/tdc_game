@@ -1,6 +1,8 @@
 import express from "express"
 import ip from "ip"
 
+const port = 3000
+
 const app = express()
 app.use(express.static('public'))
 
@@ -15,7 +17,7 @@ app._router.get("/game", (req, res) => {
 app.get("/admin", async (req, res) => {
     const file = Bun.file("html/admin.html")
     const text = await file.text()
-    return res.send(text.replace('INSERT_IP', ip.address()))
+    return res.send(text.replace('INSERT_ENDPOINT', ip.address() + ":" + port))
 })
 
-app.listen(3000)
+app.listen(port)

@@ -4,14 +4,27 @@
     <head>
         <title>Admin - Funeral Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type = "text/javascript">
+
+            const endpoint = "INSERT_ENDPOINT"
+            
+            window.onload = () => {
+            
+                const qr = new QRCode(document.querySelector("#qr"), {
+                    text: endpoint,
+                    width: 600,
+                    height: 600
+                })
+            
+                document.querySelector("#man_instr").innerHTML = "Or type " + endpoint + " into your browser"
+            }
+            
+        </script>
     </head>
     <body>
         <h1>Admin</h1>
+        <div id = "qr"></div>
+        <p id = "man_instr"></p>
     </body>
 </html>
-
-<script>
-
-const ip = "INSERT_IP"
-
-</script>
