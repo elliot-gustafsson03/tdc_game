@@ -6,7 +6,7 @@
     "ip": "^2.0.1"
   },
   "scripts": {
-    "dev": "bun --hot --bun server.js"
+    "start": "bun --hot --bun server.js"
   },
   "devDependencies": {
     "@types/bun": "latest"
