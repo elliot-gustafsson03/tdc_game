@@ -15,7 +15,22 @@
 <script>
 
 function joinGame() {
-    location.href = "/game?name=" + document.querySelector("#name").value.toLowerCase()
+
+    let name = document.querySelector("#name").value.toLowerCase()
+
+    fetch('http://localhost:3000/join', {
+        credentials: "same-origin",
+        mode: "same-origin",
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({name: name})
+    })
+    .then(response => {
+        location.href = "/game?name=" + name
+    })
+    .catch(error => {
+        alert("Någonting gick fel!")
+    })
 }
 
 </script>
