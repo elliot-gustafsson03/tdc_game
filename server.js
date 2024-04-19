@@ -60,17 +60,19 @@ function addPlayer(name) {
 }
 
 function newRound() {
-    round++
+    if (players.length >= 2) {
+        round++
     
-    lostPlayers = []
-    lostPlayers.push(randomPlayer())
-    
-    let otherRandom = randomPlayer()
-    while (lostPlayers.includes(otherRandom)) {
-        otherRandom = randomPlayer()
-    }
+        lostPlayers = []
+        lostPlayers.push(randomPlayer())
+        
+        let otherRandom = randomPlayer()
+        while (lostPlayers.includes(otherRandom)) {
+            otherRandom = randomPlayer()
+        }
 
-    lostPlayers.push(otherRandom)
+        lostPlayers.push(otherRandom)
+    }
 }
 
 function randomPlayer() {
@@ -103,5 +105,29 @@ const rounds = [
     {
         text: "Walter White has died. Prepare a speech to honor him",
         image: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/02/Breaking-Bad-things-Walter-White-feature.jpg"
-    }
+    },
+    {
+        text: "Mr. Bean has died. Prepare a speech to honor him",
+        image: "https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/62455-shout-factory1-869b74b647b88045caac956956bd1ff8.jpg"
+    },
+    {
+        text: "Lightning McQueen has died. Prepare a speech to honor him",
+        image: "https://upload.wikimedia.org/wikipedia/en/8/82/Lightning_McQueen.png"
+    },
+    {
+        text: "Elliot has died. Prepare a speech to honor him",
+        image: "http://" + ip.address() + ":" + port + "/elliot.jpeg"
+    },
+    {
+        text: "Yoda has died. Prepare a speech to honor him",
+        image: "https://content.imageresizer.com/images/memes/SMELLING-YODA-meme-2.jpg"
+    },
+    {
+        text: "Donald Duck has died. Prepare a speech to honor him",
+        image: "https://m.economictimes.com/thumb/msid-58980271,width-1200,height-900,resizemode-4,imgsize-182458/some-fun-facts-about-disneys-most-popular-character-donald-duck.jpg"
+    },
+    {
+        text: "Super Mario has died. Prepare a speech to honor him",
+        image: "https://pbs.twimg.com/media/FOPBABfVUAEFVBX.jpg:large"
+    },
 ]
