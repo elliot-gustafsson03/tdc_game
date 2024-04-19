@@ -19,6 +19,34 @@
             
                 document.querySelector("#man_instr").innerHTML = "Or type " + endpoint + " into your browser"
             }
+
+            setInterval(async () => {
+
+                const data = await fetch("http://" + window.location.host + "/players")
+                const players = await data.json()
+                let html = ""
+
+                players.forEach(element => {
+                    html += `<li>${element}</li>`
+                });
+
+                document.querySelector("#players").innerHTML = html
+
+            }, 1000)
+
+            async function newRound() {
+                fetch("http://" + window.location.host + "/newRound", {
+                    credentials: "same-origin",
+                    mode: "same-origin",
+                    method: "post"
+                })
+                .then(response => {
+                    alert("success!")
+                })
+                .catch(error => {
+                    alert("Någonting gick fel!")
+                })
+            }
             
         </script>
     </head>
@@ -26,5 +54,7 @@
         <h1>Admin</h1>
         <div id = "qr"></div>
         <p id = "man_instr"></p>
+        <button onclick="newRound()">New round</button>
+        <ul id = "players"></ul>
     </body>
 </html>

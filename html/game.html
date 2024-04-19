@@ -4,17 +4,30 @@
     <head>
         <title>Funeral Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script>
+
+            const queryString = window.location.search
+            const urlParams = new URLSearchParams(queryString)
+            const name = urlParams.get("name")
+            
+            alert("Welcome " + name + "!")
+
+            setInterval(async () => {
+                const data = await fetch ("http://" + window.location.host + "/getInfo?name=" + name)
+                const content = await data.json()
+
+                document.querySelector("#text").innerHTML = content.text
+                document.querySelector("#image").setAttribute("src", content.image)
+
+            }, 1000)
+
+            </script>
     </head>
     <body>
         <h1>Game</h1>
+        <div>
+            <p id = "text"></p>
+            <img src = "#" id = "image" >
+        </div>
     </body>
 </html>
-
-<script>
-
-const queryString = window.location.search
-const urlParams = new URLSearchParams(queryString)
-
-alert(urlParams.get("name"))
-
-</script>

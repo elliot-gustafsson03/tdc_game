@@ -17,8 +17,8 @@
 function joinGame() {
 
     let name = document.querySelector("#name").value.toLowerCase()
-
-    fetch('http://localhost:3000/join', {
+    console.log(window.location.href + "join")
+    fetch("http://" + window.location.host + "/join", {
         credentials: "same-origin",
         mode: "same-origin",
         method: "post",
